@@ -1,6 +1,13 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 
-const demoData = {
+interface Data {
+  message: string;
+  items: Array<{ id: number; name: string }>;
+}
+
+const demoData: Data = {
   message: 'CSR demo data',
   items: [
     { id: 1, name: 'Juliet' },
@@ -9,8 +16,8 @@ const demoData = {
   ],
 };
 
-function CSRPage() {
-  const [data, setData] = useState(null);
+export default function CSRPage() {
+  const [data, setData] = useState<Data | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -25,9 +32,8 @@ function CSRPage() {
   return (
     <div>
       <h1>Client-Side Rendering (CSR)</h1>
+      <p>Component renders in the browser using 'use client' directive</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 }
-
-export default CSRPage;
