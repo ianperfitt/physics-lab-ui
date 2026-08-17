@@ -32,7 +32,7 @@ export default function CSRPage() {
   return (
     <div>
       <h1>Client-Side Rendering (CSR)</h1>
-      <p>Component renders in the browser using 'use client' directive</p>
+      <p>Component renders in the browser using &apos;use client&apos; directive</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
