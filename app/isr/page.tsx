@@ -7,17 +7,14 @@ interface Data {
 export const revalidate = 10; // Revalidate every 10 seconds
 
 export default async function ISRPage() {
-  // In App Router, ISR is achieved by setting revalidate
-  // The page is cached and revalidated on the specified interval
-  const data: Data = {
-    message: 'ISR demo data',
-    generatedAt: new Date().toISOString(),
-    items: [
-      { id: 1, name: 'Alpha' },
-      { id: 2, name: 'Bravo' },
-      { id: 3, name: 'Charlie' },
-    ],
-  };
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080'}/api/rendering/isr`,
+    { next: { revalidate: 10 } },
+  );
+
+  if (!response.ok) throw new Error('Failed to fetch ISR data');
+
+  const data: Data = await response.json();
 
   return (
     <div>

@@ -4,27 +4,28 @@ import { useState, useEffect } from 'react';
 
 interface Data {
   message: string;
+  generatedAt: string;
   items: Array<{ id: number; name: string }>;
 }
-
-const demoData: Data = {
-  message: 'CSR demo data',
-  items: [
-    { id: 1, name: 'Juliet' },
-    { id: 2, name: 'Kilo' },
-    { id: 3, name: 'Lima' },
-  ],
-};
 
 export default function CSRPage() {
   const [data, setData] = useState<Data | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setData(demoData);
-    }, 1000);
+    let cancelled = false;
 
-    return () => clearTimeout(timer);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080'}/api/rendering/csr`)
+      .then((response) => {
+        if (!response.ok) throw new Error('Failed to fetch CSR data');
+        return response.json() as Promise<Data>;
+      })
+      .then((nextData) => {
+        if (!cancelled) setData(nextData);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   if (!data) return <div>Loading...</div>;

@@ -7,17 +7,14 @@ interface Data {
 export const revalidate = false; // Cache indefinitely (SSG behavior)
 
 export default async function SSGPage() {
-  // In App Router, to make this truly SSG (Static Site Generation),
-  // set revalidate = false (default) or omit it with default caching
-  const data: Data = {
-    message: 'SSG demo data',
-    generatedAt: new Date().toISOString(),
-    items: [
-      { id: 1, name: 'Golf' },
-      { id: 2, name: 'Hotel' },
-      { id: 3, name: 'India' },
-    ],
-  };
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080'}/api/rendering/ssg`,
+    { cache: 'force-cache' },
+  );
+
+  if (!response.ok) throw new Error('Failed to fetch SSG data');
+
+  const data: Data = await response.json();
 
   return (
     <div>

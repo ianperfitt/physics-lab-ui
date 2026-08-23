@@ -5,17 +5,14 @@ interface Data {
 }
 
 export default async function SSRPage() {
-  // In App Router, data fetching happens directly in the component
-  // This is rendered on the server for each request
-  const data: Data = {
-    message: 'SSR demo data',
-    generatedAt: new Date().toISOString(),
-    items: [
-      { id: 1, name: 'Delta' },
-      { id: 2, name: 'Echo' },
-      { id: 3, name: 'Foxtrot' },
-    ],
-  };
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080'}/api/rendering/ssr`,
+    { cache: 'no-store' },
+  );
+
+  if (!response.ok) throw new Error('Failed to fetch SSR data');
+
+  const data: Data = await response.json();
 
   return (
     <div>
