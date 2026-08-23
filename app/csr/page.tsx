@@ -14,7 +14,7 @@ export default function CSRPage() {
   useEffect(() => {
     let cancelled = false;
 
-    fetch(`${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080'}/api/rendering/csr`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/rendering/csr`)
       .then((response) => {
         if (!response.ok) throw new Error('Failed to fetch CSR data');
         return response.json() as Promise<Data>;
