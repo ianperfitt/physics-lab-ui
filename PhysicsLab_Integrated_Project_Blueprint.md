@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-file -->
 # PhysicsLab --- Integrated Learning & Engineering Blueprint
 
 **Status:** Living project blueprint\
