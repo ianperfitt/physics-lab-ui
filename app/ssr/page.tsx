@@ -1,3 +1,6 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Server } from 'lucide-react';
+
 interface Data {
   message: string;
   generatedAt: string;
@@ -15,10 +18,27 @@ export default async function SSRPage() {
   const data: Data = await response.json();
 
   return (
-    <div>
-      <h1>Server-Side Rendering (SSR)</h1>
-      <p>Server Component rendered fresh on each request</p>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+    <main className="min-h-screen bg-slate-50 px-6 py-10">
+      <section className="mx-auto max-w-3xl">
+        <Card className="border-slate-200 bg-white shadow-sm">
+          <CardHeader>
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-700">
+              <Server className="h-6 w-6" />
+            </div>
+            <CardTitle className="text-3xl font-black text-slate-950">
+              Server-Side Rendering (SSR)
+            </CardTitle>
+            <CardDescription className="text-slate-600">
+              Server Component rendered fresh on each request
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="rounded-2xl bg-slate-950 p-4 text-sm text-slate-100">
+              <pre className="overflow-x-auto whitespace-pre-wrap">{JSON.stringify(data, null, 2)}</pre>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+    </main>
   );
 }

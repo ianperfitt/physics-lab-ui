@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Orbit } from 'lucide-react';
 
 interface Data {
   message: string;
@@ -28,13 +30,55 @@ export default function CSRPage() {
     };
   }, []);
 
-  if (!data) return <div>Loading...</div>;
+  if (!data) {
+    return (
+      <main className="min-h-screen bg-slate-50 px-6 py-10">
+        <section className="mx-auto max-w-3xl">
+          <Card className="border-slate-200 bg-white shadow-sm">
+            <CardHeader>
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-700">
+                <Orbit className="h-6 w-6" />
+              </div>
+              <CardTitle className="text-3xl font-black text-slate-950">
+                Client-Side Rendering (CSR)
+              </CardTitle>
+              <CardDescription className="text-slate-600">
+                Component renders in the browser using the client directive
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-8 text-center text-sm font-semibold text-slate-600">
+                Loading...
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+      </main>
+    );
+  }
 
   return (
-    <div>
-      <h1>Client-Side Rendering (CSR)</h1>
-      <p>Component renders in the browser using &apos;use client&apos; directive</p>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+    <main className="min-h-screen bg-slate-50 px-6 py-10">
+      <section className="mx-auto max-w-3xl">
+        <Card className="border-slate-200 bg-white shadow-sm">
+          <CardHeader>
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-700">
+              <Orbit className="h-6 w-6" />
+            </div>
+            <CardTitle className="text-3xl font-black text-slate-950">
+              Client-Side Rendering (CSR)
+            </CardTitle>
+            <CardDescription className="text-slate-600">
+              Component renders in the browser using the client directive
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="rounded-2xl bg-slate-950 p-4 text-sm text-slate-100">
+              <pre className="overflow-x-auto whitespace-pre-wrap">{JSON.stringify(data, null, 2)}</pre>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+    </main>
   );
 }
