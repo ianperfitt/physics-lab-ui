@@ -166,7 +166,6 @@ use CSR.
 
 For example:
 
-``` text
 Product/Simulation Page
 │
 ├── Explanation
@@ -186,7 +185,6 @@ Product/Simulation Page
 └── Related concepts
       Server Component
       SSG/ISR
-```
 
 This distinction should remain a core architectural principle throughout
 PhysicsLab.
@@ -283,13 +281,10 @@ Practice:
 
 Example:
 
-``` text
 /problems/orbital-mechanics/escape-velocity
-```
 
 Possible database model:
 
-``` text
 problems
 --------
 id
@@ -300,7 +295,6 @@ topic
 solution
 created_at
 updated_at
-```
 
 Problem pages can use ISR because:
 
@@ -313,9 +307,7 @@ Problem pages can use ISR because:
 
 Example concept:
 
-``` text
 revalidate = 3600
-```
 
 The exact interval should be determined by application requirements, not
 memorized as a universal value.
@@ -336,9 +328,7 @@ Practice:
 
 Example:
 
-``` text
 /simulations/orbit?mass=...&velocity=...
-```
 
 A user can provide parameters such as:
 
@@ -353,7 +343,6 @@ The server can obtain or calculate request-specific information.
 
 Conceptual flow:
 
-``` text
 Browser
    ↓
 Next.js Server
@@ -365,7 +354,7 @@ Physics calculation / data retrieval
 Response
    ↓
 Rendered page
-```
+
 
 Practice:
 
@@ -397,7 +386,6 @@ Good candidates:
 
 Conceptual flow:
 
-``` text
 User
   ↓
 Client Component
@@ -407,7 +395,7 @@ React state
 Physics calculation / worker / API
   ↓
 Visualization
-```
+
 
 Practice:
 
@@ -431,7 +419,6 @@ A mature PhysicsLab page should often combine multiple strategies.
 
 Example:
 
-``` text
 /simulations/orbit
 │
 ├── Simulation explanation
@@ -455,7 +442,7 @@ Example:
 └── Related physics concepts
        Server Component
        SSG/ISR
-```
+
 
 This is preferable to artificially assigning one rendering strategy to
 an entire page.
@@ -505,7 +492,7 @@ authoritative record should remain in the backend/database.
 
 # 9. Proposed Technical Architecture
 
-``` text
+
                  Next.js Frontend
                        │
         ┌──────────────┼──────────────┐
@@ -526,11 +513,11 @@ authoritative record should remain in the backend/database.
           └────────────┼────────────┘
                        │
                    PostgreSQL
-```
+
 
 Potential future additions:
 
-``` text
+
 Spring Boot
     │
     ├── Redis/cache
@@ -538,7 +525,7 @@ Spring Boot
     ├── Background workers
     ├── Object/file storage
     └── Observability
-```
+
 
 Do not add infrastructure before the application genuinely needs it.
 Introduce each technology to solve a real problem.
@@ -549,7 +536,6 @@ Introduce each technology to solve a real problem.
 
 Potential initial entities:
 
-``` text
 users
 problems
 concepts
@@ -557,11 +543,11 @@ simulations
 simulation_runs
 experiments
 experiment_results
-```
+
 
 Potential relationships:
 
-``` text
+
 User
  ├── Experiments
  ├── Simulation Runs
@@ -574,7 +560,7 @@ Concept
 Simulation
  └── Simulation Runs
        └── Results
-```
+
 
 The schema should evolve through real requirements rather than being
 fully designed up front.
@@ -742,7 +728,6 @@ A PhysicsLab feature is not complete merely because it works.
 
 For meaningful learning, document:
 
-``` text
 Feature:
 Why are we building it?
 
@@ -773,7 +758,7 @@ How do we know the physics and software are correct?
 
 Tradeoffs:
 What alternatives did we reject and why?
-```
+
 
 This turns implementation into deliberate senior-level practice.
 
@@ -817,7 +802,7 @@ PhysicsLab should gradually become more than a portfolio project.
 
 The desired trajectory is:
 
-``` text
+
 Full-stack learning project
         ↓
 Physics/math learning laboratory
@@ -827,11 +812,11 @@ Computational physics platform
 Research-oriented computational projects
         ↓
 Potential research portfolio
-```
+
 
 At the same time:
 
-``` text
+
 Junior/intermediate software skills
         ↓
 Senior-level architecture
@@ -839,11 +824,11 @@ Senior-level architecture
 Strong full-stack engineering
         ↓
 Scientific software engineering
-```
+
 
 And mathematically:
 
-``` text
+
 Linear Algebra
       ↓
 Numerical Methods
@@ -857,7 +842,7 @@ Differential Geometry
 General Relativity
       ↓
 Computational GR
-```
+
 
 The three paths should reinforce one another.
 
