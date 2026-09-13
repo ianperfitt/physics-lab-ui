@@ -122,7 +122,7 @@ export default async function RenderingComparisonPage() {
                   <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
                     Fetch mode
                   </span>
-                  <p className="mt-1 text-sm font-medium text-slate-700">
+                  <p className="mt-1 text-sm font-medium text-slate-500">
                     {strategy.fetchMode}
                   </p>
                 </div>
@@ -131,7 +131,7 @@ export default async function RenderingComparisonPage() {
                   <span className="text-xs font-bold uppercase tracking-wide text-slate-500">
                     Strategy
                   </span>
-                  <p className="mt-1 text-sm font-medium text-slate-700">
+                  <p className="mt-1 text-sm font-medium text-slate-500">
                     {strategy.strategy}
                   </p>
                 </div>
@@ -142,13 +142,13 @@ export default async function RenderingComparisonPage() {
                   </p>
                 ) : (
                   <div className="space-y-2">
-                    <p className="text-sm font-semibold text-slate-900">
+                    <p className="text-sm font-semibold text-slate-500">
                       {strategy.data?.message}
                     </p>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-slate-400">
                       {strategy.data?.generatedAt}
                     </p>
-                    <ul className="space-y-2 text-sm text-slate-600">
+                    <ul className="space-y-2 text-sm text-slate-500">
                       {strategy.data?.items.map((item) => (
                         <li key={item.id} className="flex items-center gap-2">
                           <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
