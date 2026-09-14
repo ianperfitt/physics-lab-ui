@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Orbit, Server, Database, Layers, Code2 } from "lucide-react";
+import { Orbit, Server, Database, Layers, Code2, Search } from "lucide-react";
 
 const strategies = [
   {
@@ -31,6 +31,12 @@ const strategies = [
     title: "Client-Side Rendering (CSR)",
     description: "Browser-driven page state and data loading.",
     icon: Code2,
+  },
+  {
+    href: "/physicslab-index",
+    title: "PhysicsLab Index",
+    description: "Search indexed physics concepts and problem content.",
+    icon: Search,
   },
 ];
 
