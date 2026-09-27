@@ -720,6 +720,41 @@ Current focus:
 -   Connect linear algebra concepts to future computational physics and
     GR.
 
+### Implemented learning feature: row echelon form
+
+The first computational linear-algebra feature accepts a real-valued,
+rectangular matrix and returns its row echelon form through the Spring
+Boot API. The UI provides a JSON matrix input and displays the result,
+rank, and pivot columns.
+
+Implementation details:
+
+-   `POST /api/matrices/row-echelon` accepts `{ "matrix": [[...], ...] }`.
+-   The Java service copies the input and performs forward Gaussian
+    elimination, selecting the largest absolute pivot available in each
+    column (partial pivoting).
+-   The response includes `echelonForm`, `rank`, and zero-based
+    `pivotColumns`.
+-   A relative tolerance of `1e-10` times the largest absolute input
+    entry treats sufficiently small values as zero. Inputs must be
+    non-empty, rectangular, and finite.
+-   The result is row echelon form, not reduced row echelon form: pivot
+    rows are not normalized and entries above pivots are not eliminated.
+-   The algorithm operates on floating-point values, so it is intended
+    for learning and ordinary small matrices, not exact symbolic algebra
+    or high-precision scientific computation.
+
+Learning focus:
+
+-   Connect elementary row operations to pivots, rank, and linear-system
+    structure.
+-   Understand how partial pivoting and tolerance affect numerical
+    behavior.
+-   Keep the math implementation in a backend service and the interactive
+    input/display in a client component.
+-   A useful next step is to add focused examples and numerical tests,
+    then compare row echelon form with reduced row echelon form.
+
 ------------------------------------------------------------------------
 
 # 15. Definition of Done for a Learning Feature

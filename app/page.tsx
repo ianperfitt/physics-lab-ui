@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Orbit, Server, Database, Layers, Code2 } from "lucide-react";
+import { Orbit, Server, Database, Layers, Code2, Grid3X3 } from "lucide-react";
 
 const strategies = [
   {
@@ -31,6 +31,12 @@ const strategies = [
     title: "Client-Side Rendering (CSR)",
     description: "Browser-driven page state and data loading.",
     icon: Code2,
+  },
+  {
+    href: "/linear-algebra/row-echelon",
+    title: "Row Echelon Form",
+    description: "Reduce a matrix with Gaussian elimination and partial pivoting.",
+    icon: Grid3X3,
   },
 ];
 
@@ -65,7 +71,7 @@ export default function Home() {
           </div>
         </div>
 
-        <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {strategies.map((strategy) => {
             const Icon = strategy.icon;
             return (
