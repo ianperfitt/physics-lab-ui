@@ -53,6 +53,13 @@ const softwareDevelopmentLinks: LearningLink[] = [
     icon: Code2,
     label: "Rendering strategy",
   },
+  {
+    href: "/shortest-clear-path",
+    title: "Shortest Clear Path",
+    description: "Use breadth-first search to compute the shortest path length in a binary matrix.",
+    icon: Grid3X3,
+    label: "Algorithms",
+  },
 ];
 
 const physicsLinks: LearningLink[] = [
