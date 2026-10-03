@@ -131,6 +131,17 @@ export default function RowEchelonPage() {
           <h2 className="mb-1 font-bold text-sky-900">What the algorithm does</h2>
           <p>For each column, it selects the largest available pivot, swaps that row into place, and eliminates entries below the pivot. This produces row echelon form; it does not normalize pivots or eliminate entries above them, so the result is not necessarily reduced row echelon form.</p>
         </aside>
+
+        <aside className="mt-6 rounded-2xl border border-sky-100 bg-white p-5 text-sm leading-6 text-slate-700">
+          <h2 className="mb-2 text-base font-black uppercase tracking-[0.16em] text-sky-700">
+            Complexity
+          </h2>
+          <p>
+            The algorithm scans each pivot column and processes rows in the matrix, so the dominant work is
+            O(mn · min(m, n)) for an m x n matrix in the general case. It stores the working matrix and pivot list,
+            giving O(mn) additional space.
+          </p>
+        </aside>
       </section>
     </main>
   );

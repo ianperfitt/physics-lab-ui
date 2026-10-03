@@ -123,6 +123,16 @@ export default function ShortestClearPathPage() {
             </p>
           </div>
 
+          <aside className="mb-6 rounded-2xl border border-emerald-200 bg-white p-5 text-sm leading-6 text-slate-700">
+            <h2 className="mb-2 text-base font-black uppercase tracking-[0.16em] text-emerald-700">
+              Complexity
+            </h2>
+            <p>
+              Breadth-first search explores each cell at most once and checks up to 8 neighbors per cell.
+              For an n x n grid, that gives O(n²) time and O(n²) space in the worst case.
+            </p>
+          </aside>
+
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="mb-5 flex flex-wrap items-center gap-4">
