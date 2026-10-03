@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Orbit } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowLeft, Orbit } from 'lucide-react';
 
 interface Data {
   message: string;
@@ -34,6 +35,16 @@ export default function CSRPage() {
     return (
       <main className="min-h-screen bg-slate-50 px-6 py-10">
         <section className="mx-auto max-w-3xl">
+          <div className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+            <ArrowLeft className="h-4 w-4" />
+            <Link
+              href="/"
+              className="hover:text-sky-900 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700"
+            >
+              PhysicsLab
+            </Link>
+            <span> / Client-Side Rendering</span>
+          </div>
           <Card className="border-slate-200 bg-white shadow-sm">
             <CardHeader>
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-700">
@@ -60,6 +71,16 @@ export default function CSRPage() {
   return (
     <main className="min-h-screen bg-slate-50 px-6 py-10">
       <section className="mx-auto max-w-3xl">
+        <div className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+          <ArrowLeft className="h-4 w-4" />
+          <Link
+            href="/"
+            className="hover:text-sky-900 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700"
+          >
+            PhysicsLab
+          </Link>
+          <span> / Client-Side Rendering</span>
+        </div>
         <Card className="border-slate-200 bg-white shadow-sm">
           <CardHeader>
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-700">

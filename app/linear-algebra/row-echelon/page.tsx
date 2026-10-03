@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { Grid3X3 } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 interface ReductionResult {
@@ -58,7 +58,7 @@ export default function RowEchelonPage() {
       <section className="mx-auto max-w-4xl">
         <header className="mb-8">
           <div className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-            <Grid3X3 className="h-4 w-4" />
+            <ArrowLeft className="h-4 w-4" />
             <Link
               href="/"
               className="hover:text-sky-900 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700"

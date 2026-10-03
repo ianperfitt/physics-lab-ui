@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Activity, Boxes, Orbit, Server } from 'lucide-react';
+import { Activity, ArrowLeft, Boxes, Orbit, Server } from 'lucide-react';
 import Link from 'next/link';
 
 interface Data {
@@ -90,7 +90,7 @@ export default async function RenderingComparisonPage() {
       <section className="mx-auto max-w-6xl">
         <header className="mb-8">
           <div className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-            <Orbit className="h-4 w-4" />
+            <ArrowLeft className="h-4 w-4" />
             <Link
               href="/"
               className="hover:text-sky-900 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-700"
