@@ -6,6 +6,7 @@ import {
   Layers,
   Code2,
   Grid3X3,
+  Radio,
   type LucideIcon,
 } from "lucide-react";
 
@@ -24,6 +25,13 @@ const softwareDevelopmentLinks: LearningLink[] = [
     description: "Compare data fetching, caching, and component choices across strategies.",
     icon: Orbit,
     label: "Architecture",
+  },
+  {
+    href: "/server-sent-events",
+    title: "Server-Sent Events",
+    description: "Stream live readings from the Java service over a persistent connection.",
+    icon: Radio,
+    label: "Streaming",
   },
   {
     href: "/ssr",
