@@ -7,6 +7,8 @@ import {
   Code2,
   Grid3X3,
   Radio,
+  Wifi,
+  RefreshCw,
   type LucideIcon,
 } from "lucide-react";
 
@@ -32,6 +34,20 @@ const softwareDevelopmentLinks: LearningLink[] = [
     description: "Stream live readings from the Java service over a persistent connection.",
     icon: Radio,
     label: "Streaming",
+  },
+  {
+    href: "/web-sockets",
+    title: "WebSockets",
+    description: "Keep a two-way connection open for live updates from the Java service.",
+    icon: Wifi,
+    label: "Streaming",
+  },
+  {
+    href: "/polling",
+    title: "Polling",
+    description: "Request the latest reading on a timer and compare repeated HTTP calls.",
+    icon: RefreshCw,
+    label: "Request strategy",
   },
   {
     href: "/ssr",
